@@ -14,7 +14,6 @@ public class SearchController implements SearchAPI{
 	
 	SearchService service;
 
-
 	public List<PessoaDTO> getPessoas() {
 		PessoaDTO p1 = new PessoaDTO("Paulo", "Duarte");
 		return Arrays.asList(p1, p1, p1);
