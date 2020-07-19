@@ -17,10 +17,10 @@ public class SearchDao {
 		Statement stm = con.createStatement();
 		List<PessoaDTO> listPessoa = new ArrayList<PessoaDTO>();
 		
-		stm.execute("SELECT first_name AS nome, last_name AS sobrenome from employees");
+		stm.execute("SELECT first_name AS nome, last_name AS sobrenome, salary as salario from employees");
 		ResultSet rst = stm.getResultSet();
 		while(rst.next()) {
-			listPessoa.add(new PessoaDTO(rst.getString("nome"), rst.getString("sobrenome")));
+			listPessoa.add(new PessoaDTO(rst.getString("nome"), rst.getString("sobrenome"), rst.getInt("salario")));
 		}
 		return listPessoa;
 	}
