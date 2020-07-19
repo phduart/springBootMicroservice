@@ -1,6 +1,7 @@
 package br.com.paulo.api;
 
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.http.MediaType;
@@ -17,6 +18,6 @@ public interface SearchAPI {
 	
 	@RequestMapping(method = RequestMethod.GET, path="/getPessoas")
 	@ResponseBody
-	List<PessoaDTO> getPessoas();
+	List<PessoaDTO> getPessoas() throws SQLException;
 
 }
