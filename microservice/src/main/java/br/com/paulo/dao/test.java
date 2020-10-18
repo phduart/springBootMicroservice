@@ -26,7 +26,8 @@ public class test {
 //			System.out.println(nome);
 //		}
 		SearchDao daoTeste = new SearchDao();
-		System.out.println(daoTeste.getPessoas());
+		System.out.println(daoTeste.existPessoa("101"));
+		daoTeste.deletePessoa("101");
 		
 	}
 }

@@ -20,6 +20,10 @@ public class SearchController implements SearchAPI{
 		return service.getPessoas();
 	}
 	
+	public boolean deletePessoa(String id) throws SQLException {
+		return service.deletarPessoa(id);
+	}
+	
 	
 
 }

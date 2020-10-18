@@ -18,4 +18,12 @@ public class SearchService implements InterfaceSearchService {
 		return dao.getPessoas();
 	}
 
+	@Override
+	public boolean deletarPessoa(String id) throws SQLException {
+		SearchDao dao = new SearchDao();
+		return dao.deletePessoa(id);
+	}
+	
+	
+
 }

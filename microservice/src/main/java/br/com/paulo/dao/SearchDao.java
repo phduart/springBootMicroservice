@@ -1,6 +1,7 @@
 package br.com.paulo.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,6 +24,34 @@ public class SearchDao {
 			listPessoa.add(new PessoaDTO(rst.getString("nome"), rst.getString("sobrenome"), rst.getInt("salario")));
 		}
 		return listPessoa;
+	}
+	
+	public boolean deletePessoa(String id)throws SQLException{
+		if(existPessoa(id)) {
+			ConnectionFactory factory = new ConnectionFactory();
+			Connection con = factory.getConnnection();
+			PreparedStatement statement = con.prepareStatement("DELETE FROM employees WHERE employee_id = ?");
+			statement.setString(1, id);
+			statement.execute();
+			System.out.println("DELETADO id " + id);
+			return true;
+		} else {
+			System.out.println("NOT FOUND!");
+			return false;
+		}
+	}
+	
+	public boolean existPessoa(String id) throws SQLException {
+		ConnectionFactory factory = new ConnectionFactory();
+		Connection con = factory.getConnnection();
+		PreparedStatement statement = con.prepareStatement("SELECT * FROM employees WHERE employee_id = ?");
+		statement.setString(1, id);
+		statement.execute();
+		ResultSet rst = statement.getResultSet();
+		if (rst.next() == false) {
+			return false;
+		}
+		return true;
 	}
 
 }
