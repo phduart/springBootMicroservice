@@ -2,12 +2,14 @@ package br.com.paulo.entity;
 
 public class PessoaDTO {
 	
+	private String id;
 	private String nome;
 	private String sobrenome;
 	private int salario;
 	
-	public PessoaDTO(String nome, String sobrenome, int salario) {
+	public PessoaDTO(String id, String nome, String sobrenome, int salario) {
 		super();
+		this.id = id;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
 		this.salario = salario;
@@ -35,6 +37,14 @@ public class PessoaDTO {
 
 	public void setSalario(int salario) {
 		this.salario = salario;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 	

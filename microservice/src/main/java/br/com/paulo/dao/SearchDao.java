@@ -18,10 +18,10 @@ public class SearchDao {
 		Statement stm = con.createStatement();
 		List<PessoaDTO> listPessoa = new ArrayList<PessoaDTO>();
 		
-		stm.execute("SELECT first_name AS nome, last_name AS sobrenome, salary as salario from employees");
+		stm.execute("SELECT employee_id AS id, first_name AS nome, last_name AS sobrenome, salary as salario from employees");
 		ResultSet rst = stm.getResultSet();
 		while(rst.next()) {
-			listPessoa.add(new PessoaDTO(rst.getString("nome"), rst.getString("sobrenome"), rst.getInt("salario")));
+			listPessoa.add(new PessoaDTO(rst.getString("id"), rst.getString("nome"), rst.getString("sobrenome"), rst.getInt("salario")));
 		}
 		return listPessoa;
 	}
