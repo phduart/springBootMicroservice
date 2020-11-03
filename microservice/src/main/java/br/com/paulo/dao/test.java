@@ -1,20 +1,12 @@
 package br.com.paulo.dao;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-
-import br.com.paulo.service.impl.SearchService;
 
 public class test {
 	
 	static SearchDao dao;
-	
-	
 
 	public static void main(String[] args) throws SQLException {
-		
 //		ConnectionFactory factory = new ConnectionFactory();
 //		Connection con = factory.getConnnection();
 //		
@@ -28,6 +20,5 @@ public class test {
 		SearchDao daoTeste = new SearchDao();
 		System.out.println(daoTeste.existPessoa("101"));
 		daoTeste.deletePessoa("101");
-		
 	}
 }
